@@ -1,10 +1,10 @@
 clear
 clc
 %% inputs:
-Pool_w=5;                           %[m]
-Pool_D=2;                           %[m]
-Pool_L=5;                           %[m]
-T_pool=18;                          %pool's water temperature [k]
+Pool_w=3;                           %[m]
+Pool_D=1.5;                           %[m]
+Pool_L=7;                           %[m]
+T_pool=20;                          %pool's water temperature [k]
 V_WaterHeater=1.6;                  %volume of the water heater [l]
 
 %%
@@ -17,7 +17,7 @@ V_pool=Pool_w*Pool_D*Pool_L;        %m3
 m_pool=V_pool*rho1;                 %mass of water in the pool, kg
 m_WaterHeater=V_WaterHeater*rho2;   %mass of water in one water heater, kg
 
-T_final(1)=18;
+T_final(1)=T_pool;
 for i=1:100
     m_WaterHeater1=i*m_WaterHeater;
     T_final(i+1)=((m_pool-m_WaterHeater1)*T_final(i)+m_WaterHeater1*T_waterheater)/((m_pool-m_WaterHeater1)+m_WaterHeater1);
